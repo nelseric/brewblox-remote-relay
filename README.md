@@ -98,107 +98,9 @@ reboot
 
 ---
 
-### [pyproject.toml](./pyproject.toml)
-
-The [pyproject](https://python-poetry.org/docs/pyproject/) file contains all kinds of Python settings.
-For those more familiar with Python packaging: it replaces the following files:
-
-- `setup.py`
-- `MANIFEST.in`
-- `requirements.txt`
-
-**Required Changes:**
-
-- Change the `name` field to your project name. This is generally the same as the repository name. This name is used when installing the package through Pip. \ It is common for this name to equal the package name, but using "`-`" as separator instead of "`_`".
-- Change the `authors` field to your name and email.
-
----
-
-### [tox.ini](./tox.ini)
-
-Developer tools such as [Pytest](https://docs.pytest.org/en/latest/), [Flake8](http://flake8.pycqa.org/en/latest/), and [Autopep8](https://github.com/hhatto/autopep8) use this file to find configuration options.
-
-**Required Changes:**
-
-- Change `--cov=YOUR_PACKAGE` to refer to your module name.
-- The `--cov-fail-under=100` makes the build fail if code coverage is less than 100%. It is optional, but recommended. Remove the `#` comment character to enable it.
-
----
-
-### [.editorconfig](./.editorconfig)
-
-This file contains [EditorConfig](https://editorconfig.org/) configuration for this project. \
-Among other things, it describes per file type whether it uses tabs or spaces.
-
-For a basic service, you do not need to change anything in this file.
-However, it is recommended to use an editor that recognizes and uses `.editorconfig` files.
-
----
-
-### [README.md](./README.md)
-
-Your module readme (this file). It will automatically be displayed in Github.
-
-**Required Changes:**
-
-- Add all important info about your package here. What does your package do? How do you use it? What is your favorite color?
-
----
-
-### [YOUR_PACKAGE/](./YOUR_PACKAGE/)
-
-[\_\_main\_\_.py](./YOUR_PACKAGE/__main__.py),
-[subscribe_example.py](./YOUR_PACKAGE/subscribe_example.py),
-[http_example.py](./YOUR_PACKAGE/http_example.py),
-[publish_example.py](./YOUR_PACKAGE/publish_example.py)
-
-Your module. The directory name is used when importing your code in Python.
-
-You can find examples for common service actions here.
-
-**Required Changes:**
-
-- Rename to the desired module name. This name can't include "`-`" characters. \
-It is common for single-module projects to use "`-`" as a separator for the project name, and "`_`" for the module. \
-For example: `your-package` and `your_package`.
-- Change the import statements in .py files from `YOUR_PACKAGE` to your package name.
-
----
-
-### [test/conftest.py](./test/conftest.py)
-
-Shared pytest fixtures for all your tests are defined here.
-The other test files provide examples on how to use the fixtures.
-
-**Required Changes:**
-
-- Change the import from `YOUR_PACKAGE` to your package name.
-
----
-
-### [test/test_http_example.py](./test/test_http_example.py) / [test/test_publish_example.py](./test/test_publish_example.py) / [test/test_subscribe_example.py](./test/test_subscribe_example.py)
-
-The test code shows how to test the functionality added by the various examples.
-This includes multiple tricks for testing async code with pytest.
-You can remove the files if you no longer need them.
-
-**Required Changes:**
-
-- Change the import from `YOUR_PACKAGE` to your package name.
-
----
-
-### [docker/before_build.sh](./docker/before_build.sh)
-
-Docker builds can only access files in the same directory as the `Dockerfile`.
-
-The `before_build.sh` copies the dependencies for the Docker build into the docker/ directory.
-
----
-
 ### [docker/Dockerfile](./docker/Dockerfile)
 
-A docker file for running your package. To build the image for both desktop computers (AMD64), Raspberry Pi (ARM32), and Raspberry Pi 64-bit (ARM64):
+A docker file for running brewblox remote relay. To build the image for both desktop computers (AMD64), Raspberry Pi (ARM32), and Raspberry Pi 64-bit (ARM64):
 
 Prepare the builder (run once per shell):
 
@@ -219,7 +121,7 @@ docker buildx inspect --bootstrap
 Build:
 
 ```bash
-REPO=ghcr.io/you/your-package
+REPO=ghcr.io/you/brewblox-remote-relay
 TAG=local
 
 # Will build your Python package, and copy the results to the docker/ directory
@@ -243,7 +145,7 @@ While you are in the same shell, you don't need to repeat the build preparation.
 If you only want to use the image locally, run the build commands like this:
 
 ``` sh
-REPO=ghcr.io/you/your-package
+REPO=ghcr.io/you/brewblox-remote-relay
 TAG=local
 
 # Will build your Python package, and copy the results to the docker/ directory
@@ -260,7 +162,7 @@ docker buildx build \
 
 **Required Changes:**
 
-- Rename instances of `YOUR-PACKAGE` and `YOUR_PACKAGE` in the docker file to desired project and package names.
+- Rename instances of `brewblox-remote-relay` and `brewblox_remote_relay` in the docker file to desired project and package names.
 
 ---
 

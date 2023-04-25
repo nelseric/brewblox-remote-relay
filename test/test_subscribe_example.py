@@ -7,7 +7,7 @@ import json
 import pytest
 from brewblox_service.testing import matching
 
-from YOUR_PACKAGE import subscribe_example
+from brewblox_remote_relay import subscribe_example
 
 TESTED = subscribe_example.__name__
 

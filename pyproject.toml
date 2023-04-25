@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "YOUR-PACKAGE"
+name = "berwblox-remote-relay"
 version = "0.1.0"
-description = "ADD DESCRIPTION HERE"
-authors = ["Code Fairies Inc <noreply@santa.com>"]
+description = "Control remote relays as output blocks"
+authors = ["Eric Nelson <nelseric.alt@gmail.com>"]
 license = "GPL-3.0"
 readme = "README.md"
 

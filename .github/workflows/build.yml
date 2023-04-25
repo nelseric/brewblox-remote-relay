@@ -7,7 +7,7 @@ on:
     branches: [develop, edge]
 
 env:
-  DOCKER_IMAGE: ghcr.io/you/your-package
+  DOCKER_IMAGE: ghcr.io/you/brewblox-remote-relay
 
 jobs:
   build:

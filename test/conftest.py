@@ -9,7 +9,7 @@ import logging
 import pytest
 from brewblox_service import brewblox_logger, features, service
 
-from YOUR_PACKAGE.__main__ import create_parser
+from brewblox_remote_relay.__main__ import create_parser
 
 LOGGER = brewblox_logger(__name__)
 

@@ -8,7 +8,7 @@ import pytest
 from aresponses import ResponsesMockServer
 from brewblox_service import http, repeater, scheduler
 
-from YOUR_PACKAGE import publish_example
+from brewblox_remote_relay import publish_example
 
 TESTED = publish_example.__name__
 
